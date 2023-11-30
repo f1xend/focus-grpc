@@ -1,0 +1,32 @@
+version: '3.5'
+
+services:
+  hat:
+    build:
+      context: ./
+      dockerfile: docker/go/Dockerfile
+    volumes:
+      - ./:/GolangProjects/focus-grpc
+    working_dir: /GolangProjects/focus-grpc
+    entrypoint: tail -f /dev/null
+    ports:
+      - "8081:8081"
+    networks:
+      - focus
+
+  illusionist:
+    build:
+      context: ./
+      dockerfile: docker/go/Dockerfile
+    volumes:
+      - ./:/GolangProjects/focus-grpc
+    working_dir: /GolangProjects/focus-grpc
+    entrypoint: tail -f /dev/null
+    ports:
+      - "8080:8080"
+    networks:
+      - focus
+
+networks:
+  focus:
+    driver: bridge
