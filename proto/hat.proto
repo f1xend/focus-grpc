@@ -1,0 +1,27 @@
+syntax = "proto3";
+package hat;
+
+option go_package = "pkg/hat;hat";
+
+service Hat {
+  rpc rabbit(Number) returns (Animals);
+  rpc healthz(HealthzRequest) returns (HealthzResponse);
+}
+
+message Number {
+  int32 id = 1;
+}
+
+message Rabbit {
+  string color = 1;
+}
+
+message Animals {
+  repeated Rabbit rabbit = 1;
+}
+
+message HealthzRequest {
+}
+
+message HealthzResponse {
+}
