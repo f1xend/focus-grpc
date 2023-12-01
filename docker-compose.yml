@@ -8,9 +8,11 @@ services:
     volumes:
       - ./:/GolangProjects/focus-grpc
     working_dir: /GolangProjects/focus-grpc
-    entrypoint: tail -f /dev/null
+    entrypoint: make run_hat
     ports:
       - "8081:8081"
+    env_file:
+      - .env
     networks:
       - focus
 
@@ -24,6 +26,8 @@ services:
     entrypoint: tail -f /dev/null
     ports:
       - "8080:8080"
+    env_file:
+      - .env
     networks:
       - focus
 
