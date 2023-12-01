@@ -18,7 +18,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HatClient interface {
-	Rabbit(ctx context.Context, in *Number, opts ...grpc.CallOption) (*Animals, error)
+	Rabbit(ctx context.Context, in *Number, opts ...grpc.CallOption) (*Rabbit, error)
 	Healthz(ctx context.Context, in *HealthzRequest, opts ...grpc.CallOption) (*HealthzResponse, error)
 }
 
@@ -30,8 +30,8 @@ func NewHatClient(cc grpc.ClientConnInterface) HatClient {
 	return &hatClient{cc}
 }
 
-func (c *hatClient) Rabbit(ctx context.Context, in *Number, opts ...grpc.CallOption) (*Animals, error) {
-	out := new(Animals)
+func (c *hatClient) Rabbit(ctx context.Context, in *Number, opts ...grpc.CallOption) (*Rabbit, error) {
+	out := new(Rabbit)
 	err := c.cc.Invoke(ctx, "/hat.Hat/rabbit", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -52,7 +52,7 @@ func (c *hatClient) Healthz(ctx context.Context, in *HealthzRequest, opts ...grp
 // All implementations must embed UnimplementedHatServer
 // for forward compatibility
 type HatServer interface {
-	Rabbit(context.Context, *Number) (*Animals, error)
+	Rabbit(context.Context, *Number) (*Rabbit, error)
 	Healthz(context.Context, *HealthzRequest) (*HealthzResponse, error)
 	mustEmbedUnimplementedHatServer()
 }
@@ -61,7 +61,7 @@ type HatServer interface {
 type UnimplementedHatServer struct {
 }
 
-func (UnimplementedHatServer) Rabbit(context.Context, *Number) (*Animals, error) {
+func (UnimplementedHatServer) Rabbit(context.Context, *Number) (*Rabbit, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Rabbit not implemented")
 }
 func (UnimplementedHatServer) Healthz(context.Context, *HealthzRequest) (*HealthzResponse, error) {

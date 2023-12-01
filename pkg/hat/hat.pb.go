@@ -24,8 +24,6 @@ type Number struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
-
-	Id int32 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (x *Number) Reset() {
@@ -58,13 +56,6 @@ func (x *Number) ProtoReflect() protoreflect.Message {
 // Deprecated: Use Number.ProtoReflect.Descriptor instead.
 func (*Number) Descriptor() ([]byte, []int) {
 	return file_proto_hat_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *Number) GetId() int32 {
-	if x != nil {
-		return x.Id
-	}
-	return 0
 }
 
 type Rabbit struct {
@@ -114,53 +105,6 @@ func (x *Rabbit) GetColor() string {
 	return ""
 }
 
-type Animals struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Rabbit []*Rabbit `protobuf:"bytes,1,rep,name=rabbit,proto3" json:"rabbit,omitempty"`
-}
-
-func (x *Animals) Reset() {
-	*x = Animals{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_hat_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Animals) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Animals) ProtoMessage() {}
-
-func (x *Animals) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_hat_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Animals.ProtoReflect.Descriptor instead.
-func (*Animals) Descriptor() ([]byte, []int) {
-	return file_proto_hat_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *Animals) GetRabbit() []*Rabbit {
-	if x != nil {
-		return x.Rabbit
-	}
-	return nil
-}
-
 type HealthzRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -170,7 +114,7 @@ type HealthzRequest struct {
 func (x *HealthzRequest) Reset() {
 	*x = HealthzRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_hat_proto_msgTypes[3]
+		mi := &file_proto_hat_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -183,7 +127,7 @@ func (x *HealthzRequest) String() string {
 func (*HealthzRequest) ProtoMessage() {}
 
 func (x *HealthzRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_hat_proto_msgTypes[3]
+	mi := &file_proto_hat_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -196,7 +140,7 @@ func (x *HealthzRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HealthzRequest.ProtoReflect.Descriptor instead.
 func (*HealthzRequest) Descriptor() ([]byte, []int) {
-	return file_proto_hat_proto_rawDescGZIP(), []int{3}
+	return file_proto_hat_proto_rawDescGZIP(), []int{2}
 }
 
 type HealthzResponse struct {
@@ -208,7 +152,7 @@ type HealthzResponse struct {
 func (x *HealthzResponse) Reset() {
 	*x = HealthzResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_hat_proto_msgTypes[4]
+		mi := &file_proto_hat_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -221,7 +165,7 @@ func (x *HealthzResponse) String() string {
 func (*HealthzResponse) ProtoMessage() {}
 
 func (x *HealthzResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_hat_proto_msgTypes[4]
+	mi := &file_proto_hat_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -234,30 +178,26 @@ func (x *HealthzResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HealthzResponse.ProtoReflect.Descriptor instead.
 func (*HealthzResponse) Descriptor() ([]byte, []int) {
-	return file_proto_hat_proto_rawDescGZIP(), []int{4}
+	return file_proto_hat_proto_rawDescGZIP(), []int{3}
 }
 
 var File_proto_hat_proto protoreflect.FileDescriptor
 
 var file_proto_hat_proto_rawDesc = []byte{
 	0x0a, 0x0f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x68, 0x61, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x12, 0x03, 0x68, 0x61, 0x74, 0x22, 0x18, 0x0a, 0x06, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72,
-	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64,
+	0x6f, 0x12, 0x03, 0x68, 0x61, 0x74, 0x22, 0x08, 0x0a, 0x06, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72,
 	0x22, 0x1e, 0x0a, 0x06, 0x52, 0x61, 0x62, 0x62, 0x69, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x63, 0x6f,
 	0x6c, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x63, 0x6f, 0x6c, 0x6f, 0x72,
-	0x22, 0x2e, 0x0a, 0x07, 0x41, 0x6e, 0x69, 0x6d, 0x61, 0x6c, 0x73, 0x12, 0x23, 0x0a, 0x06, 0x72,
-	0x61, 0x62, 0x62, 0x69, 0x74, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x68, 0x61,
-	0x74, 0x2e, 0x52, 0x61, 0x62, 0x62, 0x69, 0x74, 0x52, 0x06, 0x72, 0x61, 0x62, 0x62, 0x69, 0x74,
 	0x22, 0x10, 0x0a, 0x0e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x7a, 0x52, 0x65, 0x71, 0x75, 0x65,
 	0x73, 0x74, 0x22, 0x11, 0x0a, 0x0f, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x7a, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0x60, 0x0a, 0x03, 0x48, 0x61, 0x74, 0x12, 0x23, 0x0a, 0x06,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0x5f, 0x0a, 0x03, 0x48, 0x61, 0x74, 0x12, 0x22, 0x0a, 0x06,
 	0x72, 0x61, 0x62, 0x62, 0x69, 0x74, 0x12, 0x0b, 0x2e, 0x68, 0x61, 0x74, 0x2e, 0x4e, 0x75, 0x6d,
-	0x62, 0x65, 0x72, 0x1a, 0x0c, 0x2e, 0x68, 0x61, 0x74, 0x2e, 0x41, 0x6e, 0x69, 0x6d, 0x61, 0x6c,
-	0x73, 0x12, 0x34, 0x0a, 0x07, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x7a, 0x12, 0x13, 0x2e, 0x68,
-	0x61, 0x74, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x7a, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x14, 0x2e, 0x68, 0x61, 0x74, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x7a, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x0d, 0x5a, 0x0b, 0x70, 0x6b, 0x67, 0x2f, 0x68,
-	0x61, 0x74, 0x3b, 0x68, 0x61, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x62, 0x65, 0x72, 0x1a, 0x0b, 0x2e, 0x68, 0x61, 0x74, 0x2e, 0x52, 0x61, 0x62, 0x62, 0x69, 0x74,
+	0x12, 0x34, 0x0a, 0x07, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x7a, 0x12, 0x13, 0x2e, 0x68, 0x61,
+	0x74, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x7a, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x14, 0x2e, 0x68, 0x61, 0x74, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x7a, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x0d, 0x5a, 0x0b, 0x70, 0x6b, 0x67, 0x2f, 0x68, 0x61,
+	0x74, 0x3b, 0x68, 0x61, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -272,25 +212,23 @@ func file_proto_hat_proto_rawDescGZIP() []byte {
 	return file_proto_hat_proto_rawDescData
 }
 
-var file_proto_hat_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_proto_hat_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_proto_hat_proto_goTypes = []interface{}{
 	(*Number)(nil),          // 0: hat.Number
 	(*Rabbit)(nil),          // 1: hat.Rabbit
-	(*Animals)(nil),         // 2: hat.Animals
-	(*HealthzRequest)(nil),  // 3: hat.HealthzRequest
-	(*HealthzResponse)(nil), // 4: hat.HealthzResponse
+	(*HealthzRequest)(nil),  // 2: hat.HealthzRequest
+	(*HealthzResponse)(nil), // 3: hat.HealthzResponse
 }
 var file_proto_hat_proto_depIdxs = []int32{
-	1, // 0: hat.Animals.rabbit:type_name -> hat.Rabbit
-	0, // 1: hat.Hat.rabbit:input_type -> hat.Number
-	3, // 2: hat.Hat.healthz:input_type -> hat.HealthzRequest
-	2, // 3: hat.Hat.rabbit:output_type -> hat.Animals
-	4, // 4: hat.Hat.healthz:output_type -> hat.HealthzResponse
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // 0: hat.Hat.rabbit:input_type -> hat.Number
+	2, // 1: hat.Hat.healthz:input_type -> hat.HealthzRequest
+	1, // 2: hat.Hat.rabbit:output_type -> hat.Rabbit
+	3, // 3: hat.Hat.healthz:output_type -> hat.HealthzResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_hat_proto_init() }
@@ -324,18 +262,6 @@ func file_proto_hat_proto_init() {
 			}
 		}
 		file_proto_hat_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Animals); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_proto_hat_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HealthzRequest); i {
 			case 0:
 				return &v.state
@@ -347,7 +273,7 @@ func file_proto_hat_proto_init() {
 				return nil
 			}
 		}
-		file_proto_hat_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_hat_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HealthzResponse); i {
 			case 0:
 				return &v.state
@@ -366,7 +292,7 @@ func file_proto_hat_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_hat_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

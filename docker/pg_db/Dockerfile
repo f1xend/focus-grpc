@@ -1,0 +1,7 @@
+FROM postgres:15.1-bullseye
+
+ENV POSTGRES_DB="animal"
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=postgres
+
+EXPOSE 5432
