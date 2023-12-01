@@ -16,18 +16,17 @@ install_hat:
 	go get google.golang.org/protobuf/runtime/protoimpl
 
 run_hat:
-	make install_report
+	make install_hat
 	tail -f /dev/null
 
-
 hat_exec:
-	docker compose exec report go run cmd/report/main.go
+	docker compose exec hat go run cmd/hat/main.go
 
 illusionist_exec:
-	docker compose exec api go run cmd/api/main.go
+	docker compose exec illusionist go run cmd/illusionist/main.go
 
 run_illusionist:
-	go run cmd/api/main.go
+	go run cmd/illusionist/main.go
 
 run_hat_exec:
-	go run cmd/report/main.go
+	go run cmd/hat/main.go
